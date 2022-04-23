@@ -25,13 +25,6 @@ const Signup = () => {
                 <form>
                     <TextField fullWidth label='Name' placeholder="Enter your name" />
                     <TextField fullWidth label='Email' placeholder="Enter your email" />
-                    <FormControl component="fieldset" style={marginTop}>
-                        <FormLabel component="legend">Gender</FormLabel>
-                        <RadioGroup aria-label="gender" name="gender" style={{ display: 'initial' }}>
-                            <FormControlLabel value="female" control={<Radio />} label="Female" />
-                            <FormControlLabel value="male" control={<Radio />} label="Male" />
-                        </RadioGroup>
-                    </FormControl>
                     <TextField fullWidth label='Phone Number' placeholder="Enter your phone number" />
                     <TextField fullWidth label='Password' placeholder="Enter your password"/>
                     <TextField fullWidth label='Confirm Password' placeholder="Confirm your password"/>

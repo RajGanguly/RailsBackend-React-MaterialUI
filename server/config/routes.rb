@@ -9,8 +9,8 @@ Rails.application.routes.draw do
         },
         singular: :user
       ) 
-      resources :tasks 
-      # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+      post "tasks/email_invitation", to: "tasks#email_invite" 
+
     end
   end  
 end

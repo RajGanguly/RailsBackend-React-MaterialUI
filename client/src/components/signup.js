@@ -22,7 +22,7 @@ const Signup = () => {
                     <h2 style={headerStyle}>Sign Up</h2>
                     <Typography variant='caption' gutterBottom>Please fill this form to create an account !</Typography>
                 </Grid>
-                <form>
+                <form id="sign_up_form">
                     <TextField fullWidth label='Name' placeholder="Enter your name" />
                     <TextField fullWidth label='Email' placeholder="Enter your email" />
                     <TextField fullWidth label='Phone Number' placeholder="Enter your phone number" />

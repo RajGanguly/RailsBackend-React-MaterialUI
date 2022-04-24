@@ -1,6 +1,6 @@
 module Registrations
 	class Create
-		def new(params)
+		def initialize(params)
 			@params = params
 		end	
 

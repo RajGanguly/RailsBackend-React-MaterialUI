@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Login from '../components/login'
 import Signup from '../components/signup' 
+import { BrowserRouter } from 'react-router-dom';
+
 const AuthenticationContainer=()=>{
     const [value,setValue]=useState(0)
     const handleChange = (event, newValue) => {
@@ -47,10 +49,10 @@ const AuthenticationContainer=()=>{
             <Tab label="Sign Up" />
         </Tabs>
         <TabPanel value={value} index={0}>
-        <Login handleChange={handleChange}/>
+            <Login handleChange={handleChange}/>          
         </TabPanel>
         <TabPanel value={value} index={1}>
-        <Signup/>
+            <Signup/>
         </TabPanel>
         </Paper>
         

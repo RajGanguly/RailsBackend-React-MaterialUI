@@ -14,4 +14,5 @@ module Users
         phone: user.phone,
       }
     end
+  end  
 end

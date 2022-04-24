@@ -1,9 +1,9 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+class RegistrationsController < Devise::RegistrationsController
   respond_to :json
 
   def create
-    user = Registrations::Create.new(user_params).call
-    ::Users::UsersRepresenter.new(user).call
+    user = ::Registrations::Create.new(user_params).call
+    render json: ::Users::UsersRepresenter.new(user).call
   end  
 
   private

@@ -1,10 +1,10 @@
-class Users::SessionsController < Devise::SessionsController
+class SessionsController < Devise::SessionsController
   respond_to :json
 
   def create
     return invalid_login_attempt if invalid_resource?
     sign_in :user, resource
-    token = user_repository.generate_auth_token(user_engagement_params)
+    token = user_repository.generate_auth_token(resource, user_params)
     authentication_success(token, resource)    
   end  
 
@@ -52,5 +52,14 @@ class Users::SessionsController < Devise::SessionsController
 
   def user_params
     params.require(:user).permit(:email, :password)
-  end      
+  end 
+
+  def authentication_success(token, resource)
+    payload = {
+      token: token
+    }
+
+    payload[:user] = user_repository.payload(resource)   
+    render json: payload, status: :ok
+  end       
 end

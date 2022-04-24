@@ -17,7 +17,7 @@ class UserRepository
   end
 
   def generate_auth_token(resource, params = {})
-    jwt_token = JWTWrapper.encode(payload(resource))
+    jwt_token = JWT.encode payload(resource), ENV["JWT_SECRET"]
     jwt_secure_token = [jwt_token, SecureRandom.uuid].join
 
     auth_token = resource.authentication_tokens.create(body: jwt_secure_token, user_agent: user_agent)
@@ -36,7 +36,7 @@ class UserRepository
       id: resource.id,
       key: SecureRandom.uuid,
       email: resource.email,
-      name: resource.name
+      name: resource.name,
       phone: resource.phone
     }
   end

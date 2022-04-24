@@ -1,8 +1,6 @@
 class AuthenticationToken < ApplicationRecord
   #has_paper_trail skip: [:expires_at, :last_used_at]
 
-  default_scope { where(deleted_at: nil) }
-
   belongs_to :user
 
   before_save :set_expires_at
